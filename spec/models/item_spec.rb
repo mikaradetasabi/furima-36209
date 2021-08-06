@@ -73,7 +73,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '売価格は、¥300~¥9,999,999の間のみ保存可能であること' do
-        @item.price = '100'
+        @item.price = 100
         @item.valid?
         expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
@@ -82,6 +82,30 @@ RSpec.describe Item, type: :model do
         @item.price = '１００００'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price Half-width number")
+      end
+
+      it '半角英数混合では登録できないこと' do
+        @item.price = '３００sdfg'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't Half-width alphanumeric")
+      end
+
+      it '半角英語だけでは登録できないこと' do
+        @item.price = 'sdfg'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't Half-width english")
+      end
+
+      it '10000000円以上では登録できない' do
+        @item.price = '10000001'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't register with the above")
+      end
+
+      it 'userが空では登録できない' do
+        @user.email = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("User can't be blank")
       end
     end
   end
