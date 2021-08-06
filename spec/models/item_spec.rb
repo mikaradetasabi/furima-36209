@@ -97,7 +97,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '10000000円以上では登録できない' do
-        @item.price = '10000001'
+        @item.price = 10000001
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't register with the above")
       end
@@ -106,6 +106,36 @@ RSpec.describe Item, type: :model do
         @user.email = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'カテゴリーのid=１を選択した場合は登録できない' do
+        @item.category_id = 1 
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Select can't be blank")
+      end
+
+      it 'カテゴリーのid=１を選択した場合は登録できない' do
+        @item.status_id = 1 
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status Select can't be blank")
+      end
+
+      it 'カテゴリーのid=１を選択した場合は登録できない' do
+        @item.burden_id = 1 
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Burden Select can't be blank")
+      end
+
+      it 'カテゴリーのid=１を選択した場合は登録できない' do
+        @item.delivery_id = 1 
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery Select can't be blank")
+      end
+
+      it 'カテゴリーのid=１を選択した場合は登録できない' do
+        @item.days_delivery_id = 1 
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Days delivery Select can't be blank")
       end
     end
   end
