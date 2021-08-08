@@ -1,7 +1,9 @@
+<%# cssは商品出品のものを併用しています。
+app/assets/stylesheets/items/new.css %>
+
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
@@ -20,7 +22,6 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image, id:"item-image" %>
-        <%= image_tag @item.image.variant(resize: '500x500'), class: 'item-image' if @item.image.attached? %>
       </div>
     </div>
     <%# /商品画像 %>
@@ -54,7 +55,7 @@
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:status_id , Status.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -110,8 +111,8 @@
           <span>販売利益</span>
           <span>
             <span id='profit'></span>円
+          </span>
         </div>
-        </span>
       </div>
     </div>
     <%# /販売価格 %>
@@ -137,8 +138,8 @@
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', item_path, class:"back-btn" %>
+      <%= f.submit "変更する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
