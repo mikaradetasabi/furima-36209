@@ -1,13 +1,10 @@
 class PurchasesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
-  before_action :move_to_index
+  before_action :set_root_path
 
   def index
     @purchase_residence = PurchaseResidence.new
-    if current_user.id == @item.user_id || @item.purchase != nil
-      redirect_to root_path 
-    end
   end
 
   def create
@@ -40,9 +37,9 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to new_user_session_path
+  def set_root_path
+    if current_user.id == @item.user_id || @item.purchase != nil
+      redirect_to root_path 
     end
   end
 end
