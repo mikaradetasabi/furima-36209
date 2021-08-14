@@ -72,6 +72,18 @@ RSpec.describe PurchaseResidence, type: :model do
         @purchase_residence.valid?
         expect(@purchase_residence.errors.full_messages).to include("Token can't be blank")
       end
+
+      it 'item_idが空だと保存できないこと' do
+        @purchase_residence.item_id = ''
+        @purchase_residence.valid?
+        expect(@purchase_residence.errors.full_messages).to include("Item can't be blank")
+      end
+
+      it 'user_idが空だと保存できないこと' do
+        @purchase_residence.user_id = ''
+        @purchase_residence.valid?
+        expect(@purchase_residence.errors.full_messages).to include("User can't be blank")
+      end
     end
   end
 end
