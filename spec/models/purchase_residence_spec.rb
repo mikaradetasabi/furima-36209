@@ -38,9 +38,9 @@ RSpec.describe PurchaseResidence, type: :model do
       end
 
       it 'delivery_idが空だと保存できないこと' do
-        @purchase_residence.delivery_id = ''
+        @purchase_residence.delivery_id = 1
         @purchase_residence.valid?
-        expect(@purchase_residence.errors.full_messages).to include("Delivery can't be blank")
+        expect(@purchase_residence.errors.full_messages).to include("Delivery Select")
       end
 
       it 'addressが空だと保存できないこと' do
