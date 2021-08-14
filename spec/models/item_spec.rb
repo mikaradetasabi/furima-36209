@@ -3,7 +3,6 @@ RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
     @item.image = fixture_file_upload('app/assets/images/star.png')
-
   end
 
   describe '出品機能' do
