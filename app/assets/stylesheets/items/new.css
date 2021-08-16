@@ -161,6 +161,11 @@
   padding-right: 10px;
 }
 
+.price-error {
+  visibility: hidden;
+  color: red;
+}
+
 /* /販売価格 */
 
 /* 注意書き */
