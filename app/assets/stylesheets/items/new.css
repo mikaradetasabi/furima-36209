@@ -232,3 +232,14 @@
 .inc {
   font-size: 13px;
 }
+
+.tag-field{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.input-tag{
+  padding-left: 10px;
+}

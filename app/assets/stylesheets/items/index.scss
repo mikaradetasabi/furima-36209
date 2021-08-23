@@ -309,3 +309,15 @@ a {
 }
 
 /* //商品一覧 */
+
+.tag{
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+
+.tag-list{
+  margin-bottom: 10px;
+}
