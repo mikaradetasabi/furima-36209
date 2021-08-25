@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :card, dependent: :destroy
+  has_one :residence
+
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数字混合で設定してください'
 
@@ -22,4 +25,5 @@ class User < ApplicationRecord
 
   has_many :purchases
   has_many :items
+
 end

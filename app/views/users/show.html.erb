@@ -1,18 +1,25 @@
+<%= render "shared/header" %>
+
 <div class="AccountPage">
   <div class="AccountPage__title">
     <h1>マイページ</h1>
   </div><br>
+
+  <div class="Card__title">
+    <h2>カード情報</h2>
+  </div>
+  
   <div class="Account__info">
     <h2>ユーザー情報</h2>
   </div>
   <div class="AccountPage__form">
     <%= form_for(current_user) do |f| %>
-      <div class="FormField">
+    <div class="FormField">
         <div class="FormField__name">
-          <%= f.label :name %>
+          <%= f.label :nickname %>
         </div>
         <div class="FormField__name">
-          <%= f.text_field :name, autofocus: true %>
+          <%= f.text_field :nickname, autofocus: true %>
         </div>
       </div>
       <div class="FormField">
@@ -32,3 +39,5 @@
     <%= link_to "商品一覧へ戻る", root_path%>
   </div>
 </div>
+
+<%= render "shared/second-footer"%>

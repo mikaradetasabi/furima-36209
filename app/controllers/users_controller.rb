@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def show
+
+  
   end
 
   def update
@@ -13,6 +15,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email) # 編集出来る情報を制限
+    params.require(:user).permit(:nickname, :email) # 編集出来る情報を制限
   end
 end

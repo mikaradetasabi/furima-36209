@@ -11,4 +11,8 @@ ja:
       item:
         text: テキスト
         image: 画像
+        product_name: 商品名
+        description: 商品の説明
+        price: 販売価格
+
 

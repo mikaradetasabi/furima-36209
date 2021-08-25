@@ -1,7 +1,5 @@
 <%= render "shared/second-header"%>
-
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
-
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
@@ -84,8 +82,10 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
-    <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
-  </div>
+    <div class="actions">
+      <%= f.submit "Next" %>
+    </div>
+      <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
   <div class="form-group">
     <h2 class='form-bottom-text'>
       「会員登録」のボタンを押すことにより、
@@ -96,8 +96,8 @@
   <div class='register-btn'>
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
   </div>
-  <p class='register-info'>本人情報の登録について</p>
-</div>
+    <p class='register-info'>本人情報の登録について</p>
+  </div>
 <% end %>
 
 <%= render "shared/second-footer"%>
